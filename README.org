@@ -1,0 +1,71 @@
+* eg.el
+
+** Description
+An Emacs wrapper for eg (https://github.com/srsudar/eg). Quoting the main repo:
+
+#+begin_quote
+eg provides examples of common uses of command line tools.
+
+Man pages are great. How does find work, again? man find will tell you, but
+you'll have to pore through all the flags and options just to figure out a
+basic usage. And what about using tar? Even with the man pages tar is
+famously inscrutable without the googling for examples.
+
+No more!
+
+eg will give you useful examples right at the command line. Think of it as a
+companion tool for man.
+
+eg comes from exempli gratia, and is pronounced like the letters: "ee gee".
+#+end_quote
+
+** Screenshots
+#+ATTR_HTML: width="100"
+#+ATTR_ORG: :width 100
+[[./screenshot-light.png]]
+#+ATTR_HTML: width="100"
+#+ATTR_ORG: :width 100
+[[./screenshot-dark.png]]
+** Requirements
+- [[https://www.gnu.org/software/emacs/download.html][Emacs]] 24.3+
+- `eg` itself. You can [[https://github.com/srsudar/eg#installation][install it from pip, homebrew, or source]].
+#+begin_src sh
+  pip install eg
+#+end_src
+
+** Install
+It is not currently in a package repository such as MELPA. If I see this project get some stars or someone files an issue about it, I can submit it. Until then, you'll need to just download/clone it.
+
+*** Manual
+A fully manual approach might look like this.
+
+#+begin_src sh
+  git clone https://github.com/mnewt/eg.el.git "~/.emacs.d/"
+#+end_src
+#+begin_src emacs-lisp
+  (add-to-list 'load-path "~/.emacs.d/eg.el")
+  (require 'eg)
+#+end_src
+
+*** use-package / straight
+If you use [[https://github.com/raxod502/straight.el][straight.el]] you might do something like this.
+
+#+begin_src emacs-lisp
+  (use-package eg.el
+    :ensure t
+    :straight (:type git :host github :repo "mnewt/eg.el")
+    :commands (eg eg-at-point))
+#+end_src
+
+** Usage
+To get help for the ~find~ command:
+#+begin_src 
+  M-x eg RET find RET
+#+end_src
+
+The ~eg~ command will complete partial commands. It will also pre-populate the command if one is found at point.
+
+To go straight to the help doc for the symbol at point:
+#+begin_src 
+  M-x eg-at-point RET
+#+end_src
