@@ -4,7 +4,7 @@
 ;; Maintainer: Matthew Newton
 ;; Version: 0.2
 ;; Package-Requires: ((emacs "24.3"))
-;; Homepage: https://github.com/mnewt/eg
+;; Homepage: https://github.com/mnewt/eg.el
 ;; Keywords: cli, reference, tools, docs
 
 
