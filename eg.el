@@ -139,12 +139,12 @@
                           command)))))
   (let ((b (get-buffer-create (format "*eg: %s*" command))))
     (pop-to-buffer b)
-    (eg-mode)
     (setq-local eg-current-command command)
     (let ((buffer-read-only))
       (erase-buffer)
       (shell-command (format "%s '%s'" eg-command command) b))
-    (goto-char (point-min))))
+    (goto-char (point-min))
+    (eg-mode)))
 
 ;;;###autoload
 (defun eg-at-point (pos)
